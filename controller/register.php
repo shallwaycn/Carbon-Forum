@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $IsApp) {
 	$Password   = Request('Post', 'Password');
 	$VerifyCode = intval(Request('Post', 'VerifyCode'));
 	do{
-		if ($Config['CloseRegistration'] === 'true') {
+		if (!$IsApp && $Config['CloseRegistration'] === 'true') {
 			$Error     = $Lang['Prohibit_Registration'];
 			$ErrorCode = 104006;
 			break;
