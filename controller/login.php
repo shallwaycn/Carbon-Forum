@@ -74,12 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $IsApp) {
 			'UserLastIP' => CurIP()
 		), $DBUser['ID']);
 		$TemporaryUserExpirationTime = $Expires * 86400 + $TimeStamp;
+		SetCookies(array(
+			'UserID' => $DBUser['ID'],
+			'UserExpirationTime' => $TemporaryUserExpirationTime,
+			'UserCode' => md5($DBUser['Password'] . $DBUser['Salt'] . $TemporaryUserExpirationTime . SALT)
+		), $Expires);
 		if( !$IsApp ){
-			SetCookies(array(
-				'UserID' => $DBUser['ID'],
-				'UserExpirationTime' => $TemporaryUserExpirationTime,
-				'UserCode' => md5($DBUser['Password'] . $DBUser['Salt'] . $TemporaryUserExpirationTime . SALT)
-			), $Expires);
 			if ( $ReturnUrl ) {
 				header('location: ' . $ReturnUrl);
 				exit('logined');
