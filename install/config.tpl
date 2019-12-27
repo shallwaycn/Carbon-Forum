@@ -37,7 +37,7 @@ define('ServicePath', __DIR__ . '/service/');
 // List<Map<String APIKey, String APISecret>>
 // Free to modify
 $APISignature = array();
-$APISignature['12450'] = 'b40484df0ad979d8ba7708d24c301c38';
+$APISignature['1853'] = 'b40484df0addh7653g7708d24c301c38';
 
 if (DEBUG_MODE) {
 	//Enable error report
