@@ -395,14 +395,14 @@ class Manage
 		$GagTime             = $CurUserRole < 3 ? $ContentFilterResult['GagTime'] : 0;
 		$Prohibited          = $ContentFilterResult['Prohibited'];
 		if ($Prohibited) {
-			if ($GagTime) {
-				//禁言用户 $GagTime 秒
-				UpdateUserInfo(array(
-					"LastPostTime" => $TimeStamp + $GagTime
-				));
-			}
-			AlertMsg($this->lang['Prohibited_Content'], $this->lang['Prohibited_Content']);
-			return;
+			// if ($GagTime) {
+			// 	//禁言用户 $GagTime 秒
+			// 	UpdateUserInfo(array(
+			// 		"LastPostTime" => $TimeStamp + $GagTime
+			// 	));
+			// }
+			// AlertMsg($this->lang['Prohibited_Content'], $this->lang['Prohibited_Content']);
+			// return;
 		}
 		$Content = $ContentFilterResult['Content'];
 

@@ -55,15 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$GagTime = $CurUserRole < 3 ? $ContentFilterResult['GagTime'] : 0;
 		$Prohibited = $ContentFilterResult['Prohibited'];
 		if ($Prohibited) {
-			$Error = $Lang['Prohibited_Content'];
-			$ErrorCode = $ErrorCodeList['Prohibited_Content'];
-			if ($GagTime) {
-				//禁言用户 $GagTime 秒
-				UpdateUserInfo(array(
-					"LastPostTime" => $TimeStamp + $GagTime
-				));
-			}
-			break;
+			// $Error = $Lang['Prohibited_Content'];
+			// $ErrorCode = $ErrorCodeList['Prohibited_Content'];
+			// if ($GagTime) {
+			// 	//禁言用户 $GagTime 秒
+			// 	UpdateUserInfo(array(
+			// 		"LastPostTime" => $TimeStamp + $GagTime
+			// 	));
+			// }
+			// break;
 		}
 		$Content = $ContentFilterResult['Content'];
 
