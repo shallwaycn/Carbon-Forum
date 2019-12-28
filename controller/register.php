@@ -157,12 +157,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $IsApp) {
 			$Avatar->Save(__DIR__ . '/../upload/avatar/small/' . $CurUserID . '.png', 24);
 			$Avatar->Free();
 		}
-		SetCookies(array(
-			'UserID' => $CurUserID,
-			'UserExpirationTime' => $TemporaryUserExpirationTime,
-			'UserCode' => md5($NewUserPassword . $NewUserSalt . $TemporaryUserExpirationTime . SALT)
-		), 30);
+
 		if (!$IsApp) {
+			SetCookies(array(
+				'UserID' => $CurUserID,
+				'UserExpirationTime' => $TemporaryUserExpirationTime,
+				'UserCode' => md5($NewUserPassword . $NewUserSalt . $TemporaryUserExpirationTime . SALT)
+			), 30);
 			Redirect('', 'registered');
 		}
 	}while(false);

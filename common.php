@@ -809,6 +809,8 @@ $CurUserID = intval(GetCookie('UserID'));
 $CurUserName = '';
 $CurUserExpirationTime = intval(GetCookie('UserExpirationTime'));
 $CurUserCode = GetCookie('UserCode');
+//error_log(print_r(debug_backtrace(), true), true, 3, "/var/www/html/my-errors.log");
+
 
 if ($CurUserExpirationTime > $TimeStamp && $CurUserExpirationTime < ($TimeStamp + 2678400) && $CurUserID && $CurUserCode) {
 	$TempUserInfo = array();
