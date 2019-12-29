@@ -45,6 +45,9 @@ switch (htmlspecialchars($_GET['action'])) {
 		break;
 }
 
+//error_log(print_r(debug_backtrace(), true), true, 3, "/var/www/html/my-errors.log");
+
+
 /* 生成上传实例对象并完成上传 */
 $up = new Uploader($fieldName, $config, $base64, $CurUserName, $DB);
 
